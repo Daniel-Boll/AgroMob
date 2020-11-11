@@ -31,7 +31,7 @@ export default function Routes() {
           component={Register}
           options={{
             headerShown: true,
-            header: () => <Header return={false} />,
+            header: () => <Header return={true} />,
           }}
         />
       </Navigator>

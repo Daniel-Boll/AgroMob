@@ -39,7 +39,12 @@ const Header: React.FC<HeaderProps> = (props) => {
       <View>{/* Logo here, but it's pretty hard */}</View>
 
       {/* Menu logo */}
-      <Feather name="menu" size={30} color="#4B65C2"></Feather>
+
+      {props.menu ? (
+        <Feather name="menu" size={30} color="#4B65C2"></Feather>
+      ) : (
+        <View></View>
+      )}
     </SafeAreaView>
   );
 };
