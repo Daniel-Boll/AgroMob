@@ -64,6 +64,7 @@ const Register: React.FC = () => {
             onChangeText={setSenha}
           />
 
+          {/* Radio Button das funções */}
           <Text style={styles.radioButtonLabel}>Escolha sua função</Text>
           {funcao.map((item) => {
             return (
