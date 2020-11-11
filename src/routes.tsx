@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import LoginHeader from "./components/LoginHeader";
 import Register from "./pages/Login/Register";
 import Header from "./components/Header";
+import LandingFarmer from "./pages/LandingFarmer";
 
 export default function Routes() {
   return (
@@ -20,6 +21,14 @@ export default function Routes() {
           cardStyle: { backgroundColor: "#F2F5FA" },
         }}
       >
+        <Screen
+          name="LandingFarmer"
+          component={LandingFarmer}
+          options={{
+            headerShown: true,
+            header: () => <Header return={true} menu={true} />,
+          }}
+        />
         <Screen
           name="Login"
           component={Login}
