@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SafeAreaView, View, Text } from "react-native";
 import { RectButton, TextInput } from "react-native-gesture-handler";
-import { Picker } from "@react-native-picker/picker";
+// import { Picker } from "@react-native-picker/picker";
 import { styles } from "./styles";
 import RadioButton from "../../../components/RadioButton";
 

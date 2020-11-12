@@ -1,58 +1,69 @@
 import { Dimensions, StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingTop: 60,
-        backgroundColor: "#F2F5FA",
-      },
-    
-      infoContainer: {
-        flex: 1,
-        marginHorizontal: 15,
-      },
-    
-      info: {
-        fontFamily: "Poppins_600SemiBold",
-        color: "#4B65C2",
-        fontSize: 28,
-        textAlign: "center",
-      },
+  container: {
+    flex: 1,
+    paddingTop: 60,
+    backgroundColor: "#F2F5FA",
+  },
 
-      horizontalRule: {
-        marginTop: 30,
-        marginHorizontal: 24,
-        borderBottomColor: "#777",
-        borderBottomWidth: 1,
-        marginBottom: 30,
-      },
+  infoContainer: {
+    flex: 1,
+    marginHorizontal: 15,
+  },
 
-      formContainer: {
-        flex: 1,
-        justifyContent: "space-between",
-      },
+  info: {
+    fontFamily: "Poppins_600SemiBold",
+    color: "#4B65C2",
+    fontSize: 28,
+    textAlign: "center",
+  },
 
-      input: {
-        backgroundColor: "#fff",
-        borderWidth: 1.4,
-        borderColor: "#4B65C2",
-        borderRadius: 20,
-        height: 56,
-        paddingVertical: 14,
-        paddingHorizontal: 24,
-        marginBottom: 35,
-        textAlignVertical: "top",
-        textAlign: "center",
-        fontSize: 16,
-        fontFamily: "Poppins_600SemiBold",
-        marginHorizontal: 20,
-      },
+  horizontalRule: {
+    marginTop: 30,
+    marginHorizontal: 24,
+    borderBottomColor: "#777",
+    borderBottomWidth: 1,
+    marginBottom: 30,
+  },
 
-      buttonText: {
-        textAlignVertical: "top",
-        textAlign: "center",
-        fontSize: 16,
-        fontFamily: "Poppins_600SemiBold",
-        color:"#4B65C2"
-      },
+  formContainer: {
+    flex: 1,
+    justifyContent: "space-between",
+  },
+
+  input: {
+    backgroundColor: "#fff",
+    borderWidth: 1.4,
+    borderColor: "#4B65C2",
+    borderRadius: 20,
+    height: 56,
+    paddingVertical: 14,
+    paddingHorizontal: 24,
+    marginBottom: 35,
+    textAlignVertical: "top",
+    textAlign: "center",
+    fontSize: 16,
+    fontFamily: "Poppins_600SemiBold",
+    marginHorizontal: 20,
+  },
+
+  buttonText: {
+    textAlignVertical: "top",
+    textAlign: "center",
+    fontSize: 16,
+    fontFamily: "Poppins_600SemiBold",
+    color: "#4B65C2",
+  },
+
+  drop: {
+    borderColor: "#4B65C2",
+    fontSize: 16,
+    borderWidth: 1.4,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    fontFamily: "Poppins_600SemiBold",
+  },
 });
