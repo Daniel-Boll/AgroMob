@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   info: {
     fontFamily: "Poppins_600SemiBold",
     color: "#4B65C2",
-    fontSize: 28,
+    fontSize: 18,
     textAlign: "center",
   },
 

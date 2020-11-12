@@ -22,17 +22,17 @@ export default function Routes() {
         }}
       >
         <Screen
+          name="Login"
+          component={Login}
+          options={{ headerShown: true, header: () => <LoginHeader /> }}
+        />
+        <Screen
           name="LandingFarmer"
           component={LandingFarmer}
           options={{
             headerShown: true,
             header: () => <Header return={true} menu={true} />,
           }}
-        />
-        <Screen
-          name="Login"
-          component={Login}
-          options={{ headerShown: true, header: () => <LoginHeader /> }}
         />
         <Screen name="Landing" component={Landing} />
         <Screen
