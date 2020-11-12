@@ -31,6 +31,8 @@ const Login: React.FC = () => {
       {/* Input e-mail */}
       <TextInput
         placeholder="E-mail ou Telefone"
+        keyboardType="email-address"
+        autoCompleteType="email"
         placeholderTextColor={"#4B65C2"}
         style={styles.input}
         value={email}
@@ -40,6 +42,8 @@ const Login: React.FC = () => {
       {/* Input senha */}
       <TextInput
         placeholder="Senha"
+        secureTextEntry={true}
+        autoCompleteType="password"
         placeholderTextColor={"#4B65C2"}
         style={styles.input}
         value={password}
