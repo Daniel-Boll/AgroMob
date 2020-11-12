@@ -17,7 +17,7 @@ const Login: React.FC = () => {
   const navigation = useNavigation();
 
   const handleRegister = () => {
-    navigation.navigate("Register");
+    navigation.navigate("RegisterSecond");
   };
 
   const handleForgetPass = () => {
@@ -33,6 +33,8 @@ const Login: React.FC = () => {
         style={styles.input}
         value={email}
         onChangeText={setEmail}
+        keyboardType="email-address"
+        autoCompleteType="email" //Sugere emails
       />
 
       {/* Input senha */}
@@ -42,6 +44,8 @@ const Login: React.FC = () => {
         style={styles.input}
         value={password}
         onChangeText={setPassword}
+        secureTextEntry={true}
+        autoCompleteType="password"
       />
 
       {/* Checkbox */}
