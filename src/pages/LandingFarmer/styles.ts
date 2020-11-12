@@ -3,28 +3,12 @@ import { Dimensions, StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 60,
-    backgroundColor: "#F2F5FA",
   },
 
-  infoContainer: {
+  formContainer: {
     flex: 1,
-    marginHorizontal: 15,
-  },
-
-  info: {
-    fontFamily: "Poppins_600SemiBold",
-    color: "#4B65C2",
-    fontSize: 18,
-    textAlign: "center",
-  },
-
-  horizontalRule: {
-    marginTop: 30,
-    marginHorizontal: 24,
-    borderBottomColor: "#777",
-    borderBottomWidth: 1,
-    marginBottom: 30,
+    justifyContent: "space-between",
+    marginVertical: 80,
   },
 
   input: {
@@ -43,28 +27,14 @@ export const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
 
-  radioButtonLabel: {
-    flex: 1,
-    textAlign: "center",
-    justifyContent: "center",
-    color: "#4B65C2",
-    fontSize: 20,
-    fontFamily: "Poppins_700Bold",
-  },
-
-  formContainer: {
-    flex: 1,
-    justifyContent: "space-between",
-  },
-
-  registerButtonContainer: {
+  loginButtonContainer: {
     flexDirection: "row",
     marginBottom: 40,
     alignContent: "center",
     justifyContent: "center",
   },
 
-  registerButton: {
+  loginButton: {
     backgroundColor: "#526FD4",
     borderRadius: 20,
     justifyContent: "center",
@@ -74,9 +44,18 @@ export const styles = StyleSheet.create({
     marginTop: 32,
   },
 
-  registerButtonText: {
+  loginButtonText: {
     fontFamily: "Poppins_800ExtraBold",
     fontSize: 18,
     color: "#FFF",
+  },
+
+  info: {
+    fontFamily: "Poppins_600SemiBold",
+    color: "#4B65C2",
+    fontSize: 22,
+    textAlign: "center",
+    marginTop: -50,
+    marginBottom: 30,
   },
 });

@@ -11,6 +11,7 @@ import LoginHeader from "./components/LoginHeader";
 import Register from "./pages/Login/Register";
 import RegisterSecond from "./pages/Login/Register/Produtor";
 import Header from "./components/Header";
+import LandingFarmer from "./pages/LandingFarmer";
 
 export default function Routes() {
   return (
@@ -25,6 +26,14 @@ export default function Routes() {
           name="Login"
           component={Login}
           options={{ headerShown: true, header: () => <LoginHeader /> }}
+        />
+        <Screen
+          name="LandingFarmer"
+          component={LandingFarmer}
+          options={{
+            headerShown: true,
+            header: () => <Header return={true} menu={true} />,
+          }}
         />
         <Screen name="Landing" component={Landing} />
         <Screen

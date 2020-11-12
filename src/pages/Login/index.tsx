@@ -20,8 +20,10 @@ const Login: React.FC = () => {
     navigation.navigate("RegisterSecond");
   };
 
-  const handleForgetPass = () => {
-    navigation.navigate("SeiLa");
+  const handleLogin = () => {
+    if (email == "a@a" && password == "a") {
+      navigation.navigate("LandingFarmer");
+    }
   };
 
   return (
@@ -29,6 +31,8 @@ const Login: React.FC = () => {
       {/* Input e-mail */}
       <TextInput
         placeholder="E-mail ou Telefone"
+        keyboardType="email-address"
+        autoCompleteType="email"
         placeholderTextColor={"#4B65C2"}
         style={styles.input}
         value={email}
@@ -40,6 +44,8 @@ const Login: React.FC = () => {
       {/* Input senha */}
       <TextInput
         placeholder="Senha"
+        secureTextEntry={true}
+        autoCompleteType="password"
         placeholderTextColor={"#4B65C2"}
         style={styles.input}
         value={password}
@@ -61,7 +67,7 @@ const Login: React.FC = () => {
 
       {/* Botão entrar */}
       <View style={styles.loginButtonContainer}>
-        <RectButton style={styles.loginButton}>
+        <RectButton style={styles.loginButton} onPress={handleLogin}>
           <Text style={styles.loginButtonText}>Entrar</Text>
         </RectButton>
       </View>
@@ -81,9 +87,7 @@ const Login: React.FC = () => {
 
       {/* Infos */}
       <View style={styles.infoContainer}>
-        <Text style={styles.forgetPassword} onPress={handleForgetPass}>
-          Esqueceu a senha?
-        </Text>
+        <Text style={styles.forgetPassword}>Esqueceu a senha?</Text>
         <Text style={styles.register} onPress={handleRegister}>
           Primeiro acesso? Cadastra-se
         </Text>
