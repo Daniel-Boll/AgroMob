@@ -9,6 +9,7 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import LoginHeader from "./components/LoginHeader";
 import Register from "./pages/Login/Register";
+import RegisterSecond from "./pages/Login/Register/Produtor";
 import Header from "./components/Header";
 import LandingFarmer from "./pages/LandingFarmer";
 
@@ -38,6 +39,14 @@ export default function Routes() {
         <Screen
           name="Register"
           component={Register}
+          options={{
+            headerShown: true,
+            header: () => <Header return={true} />,
+          }}
+        />
+        <Screen
+          name="RegisterSecond"
+          component={RegisterSecond}
           options={{
             headerShown: true,
             header: () => <Header return={true} />,
