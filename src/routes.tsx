@@ -23,10 +23,14 @@ export default function Routes() {
         }}
       >
         <Screen
-          name="Login"
-          component={Login}
-          options={{ headerShown: true, header: () => <LoginHeader /> }}
+          name="RegisterSecond"
+          component={RegisterSecond}
+          options={{
+            headerShown: true,
+            header: () => <Header color={"#4b65c2"} return={true} />,
+          }}
         />
+        
         <Screen
           name="LandingFarmer"
           component={LandingFarmer}
@@ -35,6 +39,13 @@ export default function Routes() {
             header: () => <Header return={true} menu={true} />,
           }}
         />
+        
+        <Screen
+          name="Login"
+          component={Login}
+          options={{ headerShown: true, header: () => <LoginHeader /> }}
+        />
+        
         <Screen name="Landing" component={Landing} />
         <Screen
           name="Register"
@@ -44,14 +55,7 @@ export default function Routes() {
             header: () => <Header return={true} />,
           }}
         />
-        <Screen
-          name="RegisterSecond"
-          component={RegisterSecond}
-          options={{
-            headerShown: true,
-            header: () => <Header return={true} />,
-          }}
-        />
+       
       </Navigator>
     </NavigationContainer>
   );

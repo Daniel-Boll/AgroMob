@@ -5,6 +5,8 @@ import { styles } from "./styles";
 
 import TopTabNavigator from "../../components/TopTabNavigator";
 import { RectButton, TextInput } from "react-native-gesture-handler";
+import DatePicker from 'react-native-datepicker';
+import { color } from "react-native-reanimated";
 
 const LandingFarmer: React.FC = () => {
   return (
@@ -29,13 +31,34 @@ const FarmerForm: React.FC = () => {
         </Text>
 
         {/* Input dia */}
+        <View>
+          <Text style={styles.datePickerText}>
+            Data de Carregamento
+          </Text>
+          <DatePicker
+            style={styles.datePicker}
+            //date={data}
+            mode="date"
+            format="DD/MM/YYYY"
+            minDate="01-01-1930"
+            confirmBtnText="Confirm"
+            cancelBtnText="Cancel"
+            customStyles={{
+              dateInput: {
+                borderWidth: 0,
+              }
+            }}
+            onDateChange={(date) => console.log(date)} 
+          />
+        </View>
+        {/*
         <TextInput
           placeholder="Dia do Transporte"
           placeholderTextColor={"#4B65C2"}
           style={styles.input}
           value={transportDay}
           onChangeText={setTransportDay}
-        />
+        /> */}
 
         {/* Input tipo do produto */}
         <TextInput
