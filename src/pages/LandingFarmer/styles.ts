@@ -58,4 +58,23 @@ export const styles = StyleSheet.create({
     marginTop: -50,
     marginBottom: 30,
   },
+  datePicker: {
+    display: "flex",  
+    justifyContent: "center",
+    backgroundColor: "#fff",
+    borderWidth: 1.4,
+    borderColor: "#4B65C2",
+    borderRadius: 20,
+    height: 56,
+    paddingHorizontal: 24,
+    marginBottom: 35,
+    marginHorizontal: 20,
+    width: "89%"
+  },
+  datePickerText: {
+    fontSize: 16,
+    fontFamily: "Poppins_600SemiBold", 
+    color:"#4B65C2", 
+    marginHorizontal: 30
+  }
 });

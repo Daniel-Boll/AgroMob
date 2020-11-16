@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, View } from "react-native";
+import { SafeAreaView, View, Image } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
 import { styles } from "./styles";
@@ -12,6 +12,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 interface HeaderProps {
   return?: boolean;
   menu?: boolean;
+  color?: string;
 }
 
 const Header: React.FC<HeaderProps> = (props) => {
@@ -36,10 +37,9 @@ const Header: React.FC<HeaderProps> = (props) => {
       )}
 
       {/* AgroMob logo */}
-      <View>{/* Logo here, but it's pretty hard */}</View>
+      <AgroMob_logo color={props.color}/>
 
       {/* Menu logo */}
-
       {props.menu ? (
         <Feather name="menu" size={30} color="#4B65C2"></Feather>
       ) : (
