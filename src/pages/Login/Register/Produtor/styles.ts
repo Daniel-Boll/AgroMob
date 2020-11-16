@@ -69,7 +69,7 @@ export const styles = StyleSheet.create({
   },
 
   datePicker: {
-    display: "flex",  
+    display: "flex",
     justifyContent: "center",
     backgroundColor: "#fff",
     borderWidth: 1.4,
@@ -79,7 +79,6 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 24,
     marginBottom: 35,
     marginHorizontal: 20,
-    width: "89%"
+    width: "89%",
   },
-
 });

@@ -12,6 +12,7 @@ import Register from "./pages/Login/Register";
 import RegisterSecond from "./pages/Login/Register/Produtor";
 import Header from "./components/Header";
 import LandingFarmer from "./pages/LandingFarmer";
+import PictureRegisterProfile from "./pages/Login/Register/Produtor/Picture";
 
 export default function Routes() {
   return (
@@ -23,6 +24,11 @@ export default function Routes() {
         }}
       >
         <Screen
+          name="Login"
+          component={Login}
+          options={{ headerShown: true, header: () => <LoginHeader /> }}
+        />
+        <Screen
           name="RegisterSecond"
           component={RegisterSecond}
           options={{
@@ -30,7 +36,7 @@ export default function Routes() {
             header: () => <Header color={"#4b65c2"} return={true} />,
           }}
         />
-        
+
         <Screen
           name="LandingFarmer"
           component={LandingFarmer}
@@ -39,14 +45,9 @@ export default function Routes() {
             header: () => <Header return={true} menu={true} />,
           }}
         />
-        
-        <Screen
-          name="Login"
-          component={Login}
-          options={{ headerShown: true, header: () => <LoginHeader /> }}
-        />
-        
+
         <Screen name="Landing" component={Landing} />
+
         <Screen
           name="Register"
           component={Register}
@@ -55,7 +56,15 @@ export default function Routes() {
             header: () => <Header return={true} />,
           }}
         />
-       
+
+        <Screen
+          name="PictureRegisterProfile"
+          component={PictureRegisterProfile}
+          options={{
+            headerShown: true,
+            header: () => <Header return={true} />,
+          }}
+        />
       </Navigator>
     </NavigationContainer>
   );

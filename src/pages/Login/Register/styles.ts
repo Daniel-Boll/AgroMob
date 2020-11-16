@@ -57,6 +57,17 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
 
+  drop: {
+    borderColor: "#4B65C2",
+    fontSize: 16,
+    borderWidth: 1.4,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    fontFamily: "Poppins_600SemiBold",
+  },
+
   registerButtonContainer: {
     flexDirection: "row",
     marginBottom: 40,
