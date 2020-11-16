@@ -77,7 +77,7 @@ const RegisterProducer: React.FC = () => {
               backgroundColor: "#FFF",
               borderColor: "#4B65C2",
             }}
-            onChangeItem={(item) => console.log(item.label, item.value)}
+            onChangeItem={(item: any) => console.log(item.label, item.value)}
           />
 
           {/* Botão para configurar o local de carregamento */}
