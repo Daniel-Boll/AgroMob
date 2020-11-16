@@ -1,29 +1,21 @@
 import React, { useState } from "react";
 import { SafeAreaView, View, Text } from "react-native";
 import { RectButton, TextInput } from "react-native-gesture-handler";
-// import { Picker } from "@react-native-picker/picker";
 import { styles } from "./styles";
-import RadioButton from "../../../components/RadioButton";
+import DropDownPicker from "react-native-dropdown-picker";
+
+import { useNavigation } from "@react-navigation/native";
 
 const Register: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [funcao, setFuncao] = useState([
-    { id: 1, value: true, name: "Produtor", selected: false },
-    { id: 2, value: false, name: "Transportador", selected: false },
-  ]);
 
-  const onRadioBtnClick = (item: any) => {
-    let updatedState = funcao.map((funcaoItem) =>
-      funcaoItem.id === item.id
-        ? { ...funcaoItem, selected: true }
-        : { ...funcaoItem, selected: false }
-    );
-    setFuncao(updatedState);
+  const navigation = useNavigation();
+
+  const handleRegisterSecond = () => {
+    navigation.navigate("RegisterSecond");
   };
-
-  const possibleFunctions = ["Produtor", "Transportador"];
 
   return (
     <SafeAreaView style={styles.container}>
@@ -64,19 +56,31 @@ const Register: React.FC = () => {
             onChangeText={setSenha}
           />
 
-          {/* Radio Button das funções */}
-          <Text style={styles.radioButtonLabel}>Escolha sua função</Text>
-          {funcao.map((item) => {
-            return (
-              <RadioButton
-                onPress={() => onRadioBtnClick(item)}
-                selected={item.selected}
-                key={item.id}
-              >
-                {item.name}
-              </RadioButton>
-            );
-          })}
+          <DropDownPicker
+            style={styles.drop}
+            items={[
+              { label: "Transportador", value: "transp" },
+              { label: "Produtor", value: "prod" },
+            ]}
+            placeholder="Escolha sua função"
+            labelStyle={{
+              fontSize: 16,
+              color: "#4B65C2",
+              fontFamily: "Poppins_600SemiBold",
+              textAlign: "center",
+            }}
+            containerStyle={{
+              //parte do style do "botão"
+              height: 56,
+              marginBottom: 35,
+              marginHorizontal: 20,
+            }}
+            dropDownStyle={{
+              //parte do style do dropdown
+              backgroundColor: "#FFF",
+              borderColor: "#4B65C2",
+            }}
+          />
 
           {/* 
             TODO: Habilitar o botão de cadastrar
@@ -86,7 +90,10 @@ const Register: React.FC = () => {
 
           {/* Botão cadastrar */}
           <View style={styles.registerButtonContainer}>
-            <RectButton style={styles.registerButton}>
+            <RectButton
+              style={styles.registerButton}
+              onPress={handleRegisterSecond}
+            >
               <Text style={styles.registerButtonText}>Cadastrar</Text>
             </RectButton>
           </View>

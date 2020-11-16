@@ -17,7 +17,7 @@ const Login: React.FC = () => {
   const navigation = useNavigation();
 
   const handleRegister = () => {
-    navigation.navigate("RegisterSecond");
+    navigation.navigate("Register");
   };
 
   const handleLogin = () => {
