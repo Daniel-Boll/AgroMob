@@ -1,26 +1,27 @@
 import React, { useState } from "react";
 
 import { SafeAreaView, View, Text, Button } from "react-native";
-import { RectButton, TextInput } from "react-native-gesture-handler";
-import { styles } from "./styles";
+import { RectButton } from "react-native-gesture-handler";
 import DropDownPicker from "react-native-dropdown-picker";
 import DatePicker from "react-native-datepicker";
+
 import ButtonConfirm from "../../../../components/ButtonConfirm";
+import InputButton from "../../../../components/InputButton";
 
 import { useNavigation } from "@react-navigation/native";
+import formatTime from "../../../../utils/utils";
 
-import InputButton from "../../../../components/InputButton";
+import { styles } from "./styles";
+import DateSelect from "../../../../components/DateSelect";
 
 const RegisterProducer: React.FC = () => {
   const [cpf, setCPF] = useState("");
   const [aniversario, setAniversario] = useState("");
-  const [data, setData] = useState("");
+  const [today, _] = useState(
+    formatTime(Date.now()).replace(/\//g, "-").toString()
+  );
 
   const navigation = useNavigation();
-
-  const handlePictureRegister = () => {
-    navigation.navigate("PictureRegisterProfile");
-  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -37,31 +38,42 @@ const RegisterProducer: React.FC = () => {
             text="CPF (apenas números)"
             keyboard="numeric"
             maxLength={11}
+            value={cpf}
+            onChange={setCPF}
           />
-            <DatePicker
-              style={styles.datePicker}
-              //date={data}
-              placeholder="Data de Nascimento"
-              mode="date"
-              format="DD/MM/YYYY"
-              minDate="01-01-1930"
-              maxDate="31-12-2012"
-              confirmBtnText="Confirm"
-              cancelBtnText="Cancel"
-              customStyles={{
-                dateInput: {
-                  borderWidth: 0,
-                },
-                dateIcon: {
-                  display: "none",
-                },
-                placeholderText: {
-                  fontSize: 16,
-                  fontFamily: "Poppins_600SemiBold",
-                  color: "#4B65C2",
-                },
-              }}
-            />
+
+          {/* <DateSelect
+            minDate="1-1-1940"
+            maxDate={today}
+            variable={aniversario}
+            setVariable={setAniversario}
+            placeholder="Data de Nascimento"
+          /> */}
+
+          <DatePicker
+            style={styles.datePicker}
+            placeholder={aniversario != "" ? aniversario : "Data de Nascimento"}
+            mode="date"
+            format="DD/MM/YYYY"
+            minDate="1-1-1940"
+            maxDate={today}
+            confirmBtnText="Confirm"
+            cancelBtnText="Cancel"
+            customStyles={{
+              dateInput: {
+                borderWidth: 0,
+              },
+              dateIcon: {
+                display: "none",
+              },
+              placeholderText: {
+                fontSize: 16,
+                fontFamily: "Poppins_600SemiBold",
+                color: "#4B65C2",
+              },
+            }}
+            onDateChange={(date) => setAniversario(date.toString())}
+          />
 
           <DropDownPicker
             style={styles.drop}
@@ -91,18 +103,23 @@ const RegisterProducer: React.FC = () => {
           />
 
           {/* Botão para configurar o local de carregamento */}
+          {/* Modal ao invés de trocar de página */}
           <View>
             <RectButton>
               <Text style={styles.buttonText}>Local de carregamento</Text>
             </RectButton>
           </View>
+
           {/* Botão para enviar a foto de perfil */}
+          {/* Modal ao invés de trocar de página */}
           <View>
-            <RectButton onPress={handlePictureRegister}>
+            <RectButton>
               <Text style={styles.buttonText}>Foto de perfil</Text>
             </RectButton>
-          </View>          
-          <ButtonConfirm text="Cadastrar"></ButtonConfirm>
+          </View>
+
+          {/* Next page tem que pensar */}
+          <ButtonConfirm text="Cadastrar" nextPage={"Login"}></ButtonConfirm>
         </View>
       </View>
     </SafeAreaView>

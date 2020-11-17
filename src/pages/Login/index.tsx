@@ -24,7 +24,7 @@ const Login: React.FC = () => {
 
   const handleLogin = () => {
     if (email == "a@a" && password == "a") {
-      navigation.navigate("LandingFarmer");
+      navigation.navigate("RegisterSecond");
     }
   };
 
@@ -36,10 +36,18 @@ const Login: React.FC = () => {
         keyboard="email-address"
         autoComplete="email"
         capitalize="none"
+        value={email}
+        onChange={setEmail}
       />
 
       {/* Input senha */}
-      <InputButton text="Senha" secureText={true} autoComplete="password" />
+      <InputButton
+        text="Senha"
+        secureText={true}
+        autoComplete="password"
+        value={password}
+        onChange={setPassword}
+      />
 
       {/* Checkbox */}
       <View style={styles.checkboxContainer}>
