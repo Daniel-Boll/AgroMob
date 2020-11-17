@@ -4,6 +4,7 @@ import { RectButton, TextInput } from "react-native-gesture-handler";
 import { styles } from "./styles";
 import DropDownPicker from "react-native-dropdown-picker";
 import DatePicker from "react-native-datepicker";
+import ButtonConfirm from "../../../../components/ButtonConfirm";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -39,18 +40,6 @@ const RegisterProducer: React.FC = () => {
             maxLength={11} //numero limite
           />
 
-          <View>
-            {/* <Text
-              style={{
-                fontSize: 16,
-                fontFamily: "Poppins_600SemiBold",
-                color: "#4B65C2",
-                marginHorizontal: 30,
-              }}
-            >
-              Data de Nascimento
-            </Text> */}
-
             <DatePicker
               style={styles.datePicker}
               //date={data}
@@ -75,7 +64,6 @@ const RegisterProducer: React.FC = () => {
                 },
               }}
             />
-          </View>
 
           <DropDownPicker
             style={styles.drop}
@@ -116,6 +104,9 @@ const RegisterProducer: React.FC = () => {
               <Text style={styles.buttonText}>Foto de perfil</Text>
             </RectButton>
           </View>
+          
+          <ButtonConfirm text="Cadastrar"></ButtonConfirm>
+
         </View>
       </View>
     </SafeAreaView>

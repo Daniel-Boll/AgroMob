@@ -13,6 +13,7 @@ import RegisterSecond from "./pages/Login/Register/Produtor";
 import Header from "./components/Header";
 import LandingFarmer from "./pages/LandingFarmer";
 import PictureRegisterProfile from "./pages/Login/Register/Produtor/Picture";
+import Transportador from "./pages/Login/Register/Transportador";
 
 export default function Routes() {
   return (
@@ -24,10 +25,14 @@ export default function Routes() {
         }}
       >
         <Screen
-          name="Login"
-          component={Login}
-          options={{ headerShown: true, header: () => <LoginHeader /> }}
+          name="Transportador"
+          component={Transportador}
+          options={{
+            headerShown: true,
+            header: () => <Header color={"#4b65c2"} return={true} />,
+          }}
         />
+
         <Screen
           name="RegisterSecond"
           component={RegisterSecond}
@@ -35,6 +40,12 @@ export default function Routes() {
             headerShown: true,
             header: () => <Header color={"#4b65c2"} return={true} />,
           }}
+        />
+
+        <Screen
+          name="Login"
+          component={Login}
+          options={{ headerShown: true, header: () => <LoginHeader /> }}
         />
 
         <Screen

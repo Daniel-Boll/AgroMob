@@ -3,6 +3,7 @@ import { SafeAreaView, View, Text } from "react-native";
 import { RectButton, TextInput } from "react-native-gesture-handler";
 import { styles } from "./styles";
 import DropDownPicker from "react-native-dropdown-picker";
+import ButtonConfimr from "../../../components/ButtonConfirm"
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -89,14 +90,8 @@ const Register: React.FC = () => {
            */}
 
           {/* Botão cadastrar */}
-          <View style={styles.registerButtonContainer}>
-            <RectButton
-              style={styles.registerButton}
-              onPress={handleRegisterSecond}
-            >
-              <Text style={styles.registerButtonText}>Cadastrar</Text>
-            </RectButton>
-          </View>
+          <ButtonConfimr text={"Continuar"}></ButtonConfimr>
+
         </View>
       </View>
     </SafeAreaView>
