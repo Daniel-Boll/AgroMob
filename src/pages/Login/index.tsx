@@ -10,6 +10,7 @@ import Facebook_logo from "../../images/Facebook_logo";
 import Gmail_logo from "../../images/Gmail_logo";
 
 import InputButton from "../../components/InputButton";
+import ButtonConfirm from "../../components/ButtonConfirm";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -61,11 +62,7 @@ const Login: React.FC = () => {
       </View>
 
       {/* Botão entrar */}
-      <View style={styles.loginButtonContainer}>
-        <RectButton style={styles.loginButton} onPress={handleLogin}>
-          <Text style={styles.loginButtonText}>Entrar</Text>
-        </RectButton>
-      </View>
+      <ButtonConfirm text={"Entrar"} nextPage={"Login"} />
 
       {/* Linha */}
       <View style={styles.horizontalRule} />

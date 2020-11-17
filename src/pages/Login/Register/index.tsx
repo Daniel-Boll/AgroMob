@@ -16,12 +16,6 @@ const Register: React.FC = () => {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("Escolha sua função");
 
-  const navigation = useNavigation();
-
-  const handleRegisterSecond = () => {
-    navigation.navigate("RegisterSecond");
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.infoContainer}>
@@ -36,7 +30,7 @@ const Register: React.FC = () => {
         <View style={styles.formContainer}>
           {/* Input nome */}
           <InputButton
-            text="Nome Complete"
+            text="Nome Completo"
             capitalize="words"
             value={name}
             onChange={setName}
@@ -45,7 +39,7 @@ const Register: React.FC = () => {
           {/* Input e-mail */}
           <InputButton
             text="E-mail"
-            keyboard="email-adress"
+            keyboard="email-address"
             autoComplete="email"
             value={email}
             onChange={setEmail}
@@ -64,7 +58,7 @@ const Register: React.FC = () => {
             style={styles.drop}
             items={[
               { label: "Transportador", value: "Transportador" },
-              { label: "Produtor", value: "Produtor" },
+              { label: "Produtor", value: "LandingFarmer" },
             ]}
             placeholder="Escolha sua função"
             labelStyle={{
@@ -93,7 +87,7 @@ const Register: React.FC = () => {
            */}
 
           {/* Botão cadastrar */}
-          <ButtonConfirm text={"Continuar"} nextPage={role}></ButtonConfirm>
+          <ButtonConfirm text={"Continuar"} nextPage={role} />
         </View>
       </View>
     </SafeAreaView>
