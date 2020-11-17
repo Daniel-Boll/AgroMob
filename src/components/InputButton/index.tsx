@@ -1,33 +1,37 @@
 import { useLinkProps } from "@react-navigation/native";
-import React from "react";
+import React, { SetStateAction } from "react";
 import { TextInput } from "react-native-gesture-handler";
 
 import { styles } from "../InputButton/styles";
 
 interface InputProps {
   text?: string;
-  autoComplete?: string;
-  keyboard?: string;
-  capitalize?: string;
+  autoComplete?: any;
+  keyboard?: any;
+  capitalize?: any;
   secureText?: boolean;
   maxLength?: number;
+  value: string | number;
+  onChange: React.Dispatch<SetStateAction<string>>;
 }
-const InputButton: React.FC<InputProps> = (props) => {
-  {
-    props.autoComplete ? props.autoComplete : "off";
-    props.keyboard ? props.keyboard : "default";
-    props.capitalize ? props.capitalize : "sentences";
-  }
 
+const InputButton: React.FC<InputProps> = ({
+  text,
+  autoComplete,
+  keyboard,
+  capitalize,
+  secureText,
+  maxLength,
+}) => {
   return (
     <TextInput
-      placeholder={props.text}
-      keyboardType={props.keyboard}
-      autoCompleteType={props.autoComplete}
-      autoCapitalize={props.capitalize}
-      secureTextEntry={props.secureText}
+      placeholder={text}
+      keyboardType={keyboard ?? "default"}
+      autoCompleteType={autoComplete}
+      autoCapitalize={capitalize ?? "sentences"}
+      secureTextEntry={secureText}
       style={styles.input}
-      maxLength={props.maxLength}
+      maxLength={maxLength}
       placeholderTextColor="#4B65C2"
     />
   );

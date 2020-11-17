@@ -4,7 +4,7 @@ import { SafeAreaView, View, Text } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import { styles } from "./styles";
 import DropDownPicker from "react-native-dropdown-picker";
-import ButtonConfimr from "../../../components/ButtonConfirm"
+import ButtonConfirm from "../../../components/ButtonConfirm";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -13,7 +13,8 @@ import InputButton from "../../../components/InputButton";
 const Register: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("Escolha sua função");
 
   const navigation = useNavigation();
 
@@ -34,13 +35,20 @@ const Register: React.FC = () => {
 
         <View style={styles.formContainer}>
           {/* Input nome */}
-          <InputButton text="Nome Complete" capitalize="words" />
+          <InputButton
+            text="Nome Complete"
+            capitalize="words"
+            value={name}
+            onChange={setName}
+          />
 
           {/* Input e-mail */}
           <InputButton
             text="E-mail"
             keyboard="email-adress"
             autoComplete="email"
+            value={email}
+            onChange={setEmail}
           />
 
           {/* Input senha */}
@@ -48,13 +56,15 @@ const Register: React.FC = () => {
             text="Senha (min. 6 carácteres)"
             secureText={true}
             autoComplete="password"
+            value={password}
+            onChange={setPassword}
           />
 
           <DropDownPicker
             style={styles.drop}
             items={[
-              { label: "Transportador", value: "transp" },
-              { label: "Produtor", value: "prod" },
+              { label: "Transportador", value: "Transportador" },
+              { label: "Produtor", value: "Produtor" },
             ]}
             placeholder="Escolha sua função"
             labelStyle={{
@@ -74,6 +84,7 @@ const Register: React.FC = () => {
               backgroundColor: "#FFF",
               borderColor: "#4B65C2",
             }}
+            onChangeItem={(item) => setRole(item.value)}
           />
           {/* 
             TODO: Habilitar o botão de cadastrar
@@ -82,8 +93,7 @@ const Register: React.FC = () => {
            */}
 
           {/* Botão cadastrar */}
-          <ButtonConfimr text={"Continuar"}></ButtonConfimr>
-
+          <ButtonConfirm text={"Continuar"} nextPage={role}></ButtonConfirm>
         </View>
       </View>
     </SafeAreaView>

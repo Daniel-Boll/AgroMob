@@ -18,14 +18,12 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = (props) => {
   const navigation = useNavigation();
 
-  const handleReturn = () => {
-    navigation.goBack();
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       {/* Return logo */}
       {props.return ? (
+        // Touchable opacity
+        // to make easier click
         <Feather
           name="arrow-left"
           size={30}
@@ -37,7 +35,7 @@ const Header: React.FC<HeaderProps> = (props) => {
       )}
 
       {/* AgroMob logo */}
-      <AgroMob_logo color={props.color}/>
+      <AgroMob_logo color={props.color} />
 
       {/* Menu logo */}
       {props.menu ? (
