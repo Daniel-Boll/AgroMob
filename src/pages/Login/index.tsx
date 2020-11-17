@@ -9,6 +9,8 @@ import { styles } from "./styles";
 import Facebook_logo from "../../images/Facebook_logo";
 import Gmail_logo from "../../images/Gmail_logo";
 
+import InputButton from "../../components/InputButton";
+
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,26 +31,15 @@ const Login: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       {/* Input e-mail */}
-      <TextInput
-        placeholder="E-mail ou Telefone"
-        keyboardType="email-address"
-        autoCompleteType="email"
-        placeholderTextColor={"#4B65C2"}
-        style={styles.input}
-        value={email}
-        onChangeText={setEmail}
+      <InputButton
+        text="E-mail"
+        keyboard="email-address"
+        autoComplete="email"
+        capitalize="none"
       />
 
       {/* Input senha */}
-      <TextInput
-        placeholder="Senha"
-        secureTextEntry={true}
-        autoCompleteType="password"
-        placeholderTextColor={"#4B65C2"}
-        style={styles.input}
-        value={password}
-        onChangeText={setPassword}
-      />
+      <InputButton text="Senha" secureText={true} autoComplete="password" />
 
       {/* Checkbox */}
       <View style={styles.checkboxContainer}>

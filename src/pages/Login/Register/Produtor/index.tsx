@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { SafeAreaView, View, Text, Button } from "react-native";
 import { RectButton, TextInput } from "react-native-gesture-handler";
 import { styles } from "./styles";
@@ -6,6 +7,8 @@ import DropDownPicker from "react-native-dropdown-picker";
 import DatePicker from "react-native-datepicker";
 
 import { useNavigation } from "@react-navigation/native";
+
+import InputButton from "../../../../components/InputButton";
 
 const RegisterProducer: React.FC = () => {
   const [cpf, setCPF] = useState("");
@@ -29,28 +32,13 @@ const RegisterProducer: React.FC = () => {
 
         <View style={styles.formContainer}>
           {/* Input CPF */}
-          <TextInput
-            placeholder="CPF (apenas números)"
-            placeholderTextColor={"#4B65C2"}
-            style={styles.input}
-            value={cpf}
-            onChangeText={setCPF}
-            keyboardType="numeric" //apenas digitos
-            maxLength={11} //numero limite
+          <InputButton
+            text="CPF (apenas números)"
+            keyboard="numeric"
+            maxLength={11}
           />
 
           <View>
-            {/* <Text
-              style={{
-                fontSize: 16,
-                fontFamily: "Poppins_600SemiBold",
-                color: "#4B65C2",
-                marginHorizontal: 30,
-              }}
-            >
-              Data de Nascimento
-            </Text> */}
-
             <DatePicker
               style={styles.datePicker}
               //date={data}
@@ -105,15 +93,21 @@ const RegisterProducer: React.FC = () => {
           />
 
           {/* Botão para configurar o local de carregamento */}
-          <View style={styles.input}>
+          <View>
             <RectButton>
               <Text style={styles.buttonText}>Local de carregamento</Text>
             </RectButton>
           </View>
           {/* Botão para enviar a foto de perfil */}
           <View>
-            <RectButton onPress={handlePictureRegister} style={styles.input}>
+            <RectButton onPress={handlePictureRegister}>
               <Text style={styles.buttonText}>Foto de perfil</Text>
+            </RectButton>
+          </View>
+
+          <View>
+            <RectButton>
+              <Text>Avançar</Text>
             </RectButton>
           </View>
         </View>
