@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+
 import { SafeAreaView, View, Text } from "react-native";
-import { RectButton, TextInput } from "react-native-gesture-handler";
+import { RectButton } from "react-native-gesture-handler";
 import { styles } from "./styles";
 import DropDownPicker from "react-native-dropdown-picker";
 
 import { useNavigation } from "@react-navigation/native";
+
+import InputButton from "../../../components/InputButton";
 
 const Register: React.FC = () => {
   const [name, setName] = useState("");
@@ -30,30 +33,20 @@ const Register: React.FC = () => {
 
         <View style={styles.formContainer}>
           {/* Input nome */}
-          <TextInput
-            placeholder="Nome Completo"
-            placeholderTextColor={"#4B65C2"}
-            style={styles.input}
-            value={name}
-            onChangeText={setName}
-          />
+          <InputButton text="Nome Complete" capitalize="words" />
 
           {/* Input e-mail */}
-          <TextInput
-            placeholder="E-mail"
-            placeholderTextColor={"#4B65C2"}
-            style={styles.input}
-            value={email}
-            onChangeText={setEmail}
+          <InputButton
+            text="E-mail"
+            keyboard="email-adress"
+            autoComplete="email"
           />
 
           {/* Input senha */}
-          <TextInput
-            placeholder="Senha (min. 6 carácteres)"
-            placeholderTextColor={"#4B65C2"}
-            style={styles.input}
-            value={senha}
-            onChangeText={setSenha}
+          <InputButton
+            text="Senha (min. 6 carácteres)"
+            secureText={true}
+            autoComplete="password"
           />
 
           <DropDownPicker
@@ -81,7 +74,6 @@ const Register: React.FC = () => {
               borderColor: "#4B65C2",
             }}
           />
-
           {/* 
             TODO: Habilitar o botão de cadastrar
             apenas quando todas as informações forem
