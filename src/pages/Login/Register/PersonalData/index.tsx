@@ -47,7 +47,7 @@ const RegisterProducer: React.FC = () => {
             maxDate={today}
             variable={aniversario}
             setVariable={setAniversario}
-            placeholder="Data de Nascimento"
+            placeholder="Data"
           /> */}
 
           <DatePicker
@@ -119,7 +119,7 @@ const RegisterProducer: React.FC = () => {
           </View>
 
           {/* Next page tem que pensar */}
-          <ButtonConfirm text="Cadastrar" nextPage={"Login"}></ButtonConfirm>
+          <ButtonConfirm text="Cadastrar" nextPage={"LandingFarmer"} />
         </View>
       </View>
     </SafeAreaView>

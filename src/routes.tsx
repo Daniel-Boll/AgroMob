@@ -9,10 +9,10 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import LoginHeader from "./components/LoginHeader";
 import Register from "./pages/Login/Register";
-import Produtor from "./pages/Login/Register/Produtor";
+import PersonalData from "./pages/Login/Register/PersonalData";
 import Header from "./components/Header";
 import LandingFarmer from "./pages/LandingFarmer";
-import Transportador from "./pages/Login/Register/Transportador";
+import Transportador from "./pages/Login/Register/PersonalData";
 
 export default function Routes() {
   return (
@@ -23,6 +23,8 @@ export default function Routes() {
           cardStyle: { backgroundColor: "#F2F5FA" },
         }}
       >
+        <Screen name="Landing" component={Landing} />
+
         <Screen
           name="Login"
           component={Login}
@@ -39,8 +41,8 @@ export default function Routes() {
         />
 
         <Screen
-          name="Produtor"
-          component={Produtor}
+          name="PersonalData"
+          component={PersonalData}
           options={{
             headerShown: true,
             header: () => <Header color={"#4b65c2"} return={true} />,
@@ -52,18 +54,18 @@ export default function Routes() {
           component={LandingFarmer}
           options={{
             headerShown: true,
-            header: () => <Header return={true} menu={true} />,
+            header: () => (
+              <Header color={"#4b65c2"} return={true} menu={true} />
+            ),
           }}
         />
-
-        <Screen name="Landing" component={Landing} />
 
         <Screen
           name="Register"
           component={Register}
           options={{
             headerShown: true,
-            header: () => <Header return={true} />,
+            header: () => <Header color={"#4b65c2"} return={true} />,
           }}
         />
       </Navigator>

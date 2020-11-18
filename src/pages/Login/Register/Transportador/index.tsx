@@ -21,19 +21,14 @@ const Transportador: React.FC = () => {
           </RectButton>
 
           <RectButton style={styles.input}>
-            <Text style={styles.buttonText}>Dados Pessoais</Text>
-          </RectButton>
-
-          <RectButton style={styles.input}>
             <Text style={styles.buttonText}>CNH com EAR</Text>
           </RectButton>
 
           <RectButton style={styles.input}>
             <Text style={styles.buttonText}>CRLV</Text>
           </RectButton>
-          
-          <ButtonConfirm text="Cadastrar"></ButtonConfirm>
 
+          <ButtonConfirm text={"Cadastrar"} nextPage={"Login"} />
         </View>
       </View>
     </SafeAreaView>
