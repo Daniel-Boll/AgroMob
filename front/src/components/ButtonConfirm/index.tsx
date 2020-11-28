@@ -8,14 +8,15 @@ import { useLinkProps, useNavigation } from "@react-navigation/native";
 
 interface ButtonProps {
   text?: string;
+  info?: {};
   nextPage: string;
 }
 
-const ButtonConfirm: React.FC<ButtonProps> = ({ nextPage, text }) => {
+const ButtonConfirm: React.FC<ButtonProps> = ({ nextPage, text, info }) => {
   const navigation = useNavigation();
 
   const handleNextPage = () => {
-    navigation.navigate(nextPage);
+    navigation.navigate(nextPage, info);
   };
 
   return (

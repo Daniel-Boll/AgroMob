@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { SafeAreaView, View, Text } from "react-native";
-import { RectButton } from "react-native-gesture-handler";
+import { RectButton, TextInput } from "react-native-gesture-handler";
 import { styles } from "./styles";
 import DropDownPicker from "react-native-dropdown-picker";
 import ButtonConfirm from "../../../components/ButtonConfirm";
@@ -14,7 +14,6 @@ const Register: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("Escolha sua função");
 
   return (
     <SafeAreaView style={styles.container}>
@@ -54,32 +53,6 @@ const Register: React.FC = () => {
             onChange={setPassword}
           />
 
-          <DropDownPicker
-            style={styles.drop}
-            items={[
-              { label: "Transportador", value: "Transportador" },
-              { label: "Produtor", value: "LandingFarmer" },
-            ]}
-            placeholder="Escolha sua função"
-            labelStyle={{
-              fontSize: 16,
-              color: "#4B65C2",
-              fontFamily: "Poppins_600SemiBold",
-              textAlign: "center",
-            }}
-            containerStyle={{
-              //parte do style do "botão"
-              height: 56,
-              marginBottom: 35,
-              marginHorizontal: 20,
-            }}
-            dropDownStyle={{
-              //parte do style do dropdown
-              backgroundColor: "#FFF",
-              borderColor: "#4B65C2",
-            }}
-            onChangeItem={(item) => setRole(item.value)}
-          />
           {/* 
             TODO: Habilitar o botão de cadastrar
             apenas quando todas as informações forem
@@ -87,7 +60,15 @@ const Register: React.FC = () => {
            */}
 
           {/* Botão cadastrar */}
-          <ButtonConfirm text={"Continuar"} nextPage={role} />
+          <ButtonConfirm
+            text={"Continuar"}
+            nextPage={"PersonalData"}
+            info={{
+              name,
+              email,
+              password,
+            }}
+          />
         </View>
       </View>
     </SafeAreaView>

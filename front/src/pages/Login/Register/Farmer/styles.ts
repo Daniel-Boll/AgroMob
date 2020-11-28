@@ -1,5 +1,4 @@
 import { Dimensions, StyleSheet } from "react-native";
-import { color } from "react-native-reanimated";
 
 export const styles = StyleSheet.create({
   container: {
@@ -31,31 +30,6 @@ export const styles = StyleSheet.create({
   formContainer: {
     flex: 1,
     justifyContent: "space-between",
-  },
-
-  input: {
-    backgroundColor: "#fff",
-    borderWidth: 1.4,
-    borderColor: "#4B65C2",
-    borderRadius: 20,
-    height: 56,
-    paddingVertical: 14,
-    paddingHorizontal: 24,
-    marginBottom: 35,
-    textAlignVertical: "top",
-    textAlign: "center",
-    fontSize: 16,
-    fontFamily: "Poppins_600SemiBold",
-    marginHorizontal: 20,
-  },
-
-  buttonText: {
-    borderColor: "#000",
-    textAlignVertical: "top",
-    textAlign: "center",
-    fontSize: 16,
-    fontFamily: "Poppins_600SemiBold",
-    color: "#4B65C2",
   },
 
   registerButton: {

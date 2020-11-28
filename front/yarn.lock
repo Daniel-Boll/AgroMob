@@ -1496,7 +1496,7 @@
   resolved "https://registry.npmjs.org/@types/stack-utils/-/stack-utils-1.0.1.tgz"
   integrity sha512-l42BggppR6zLmpfU6fq9HEa2oGPEI8yrSPL3GITjfRInppYFahObbIQOQK3UGxEnyQpltZLaPe75046NOZQikw==
 
-"@types/styled-components@^5.1.4":
+"@types/styled-components@^5.1.0", "@types/styled-components@^5.1.4":
   version "5.1.4"
   resolved "https://registry.npmjs.org/@types/styled-components/-/styled-components-5.1.4.tgz"
   integrity sha512-78f5Zuy0v/LTQNOYfpH+CINHpchzMMmAt9amY2YNtSgsk1TmlKm8L2Wijss/mtTrsUAVTm2CdGB8VOM65vA8xg==
@@ -1762,6 +1762,13 @@ available-typed-arrays@^1.0.0, available-typed-arrays@^1.0.2:
   integrity sha512-XWX3OX8Onv97LMk/ftVyBibpGwY5a8SmuxZPzeOxqmuEqUCOM9ZE+uIaD1VNJ5QnvU2UQusvmKbuM1FR8QWGfQ==
   dependencies:
     array-filter "^1.0.0"
+
+axios@^0.21.0:
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.0.tgz#26df088803a2350dff2c27f96fef99fe49442aca"
+  integrity sha512-fmkJBknJKoZwem3/IKSSLpkdNXZeBu5Q7GA/aRsr2btgrptmSCxi2oFjZHqGdK9DoTil9PIHlPIZw2EcRJXRvw==
+  dependencies:
+    follow-redirects "^1.10.0"
 
 babel-plugin-dynamic-import-node@^2.3.3:
   version "2.3.3"
@@ -2818,6 +2825,16 @@ expo-font@~8.3.0:
     fbjs "1.0.0"
     fontfaceobserver "^2.1.0"
 
+expo-images-picker@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/expo-images-picker/-/expo-images-picker-1.0.7.tgz#fc183b4ee1ccd36c137156a2c2b19b0fb8bc8002"
+  integrity sha512-H9Xv04Mt+P2jNBogK1YoAaHpJLzQXN1g/WGaUzGPxd+ceSyfy0ZtBnXcDAhPZSTSpIJTT4spGSM2YvS+BnQNlQ==
+  dependencies:
+    "@types/styled-components" "^5.1.0"
+    expo-media-library "~8.2.1"
+    expo-permissions "~9.0.1"
+    styled-components "^5.1.1"
+
 expo-keep-awake@~8.3.0:
   version "8.3.0"
   resolved "https://registry.npmjs.org/expo-keep-awake/-/expo-keep-awake-8.3.0.tgz"
@@ -2841,6 +2858,16 @@ expo-location@~9.0.0:
   version "9.0.1"
   resolved "https://registry.npmjs.org/expo-location/-/expo-location-9.0.1.tgz"
   integrity sha512-yl4V2IelxrjG1h3nshkyILwghysNJvvEuR4Of0U7oYAsBrT0cq8NxFuaDemRvqt9Yb19wVFNMoVtYFNpthcqpQ==
+
+expo-media-library@~8.2.1:
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/expo-media-library/-/expo-media-library-8.2.1.tgz#2296298dfcf2b19b56c201cb62b2b67c197bede0"
+  integrity sha512-V0XDewHE7MFgwNAUZlruAabMCxM9uf9FfmgKIcoolWq/HGTC0GmwqN1QZIrKEejkqQLJWbUP8HoBWGx7IXz3ng==
+
+expo-permissions@~9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/expo-permissions/-/expo-permissions-9.0.1.tgz#dc10b58654bbe39bbbed5827369942b01b08055e"
+  integrity sha512-CosJgy8XQRN/OFG2JTQDcFxz3XTGi27coCMym/hVXWtQfk0z6PwdRG5IXHfLGuSckwIcgmirrwm2+Zc0X3MmNg==
 
 expo-permissions@~9.3.0:
   version "9.3.0"
@@ -3102,6 +3129,11 @@ find-up@^4.1.0:
   dependencies:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
+
+follow-redirects@^1.10.0:
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
+  integrity sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==
 
 fontfaceobserver@^2.1.0:
   version "2.1.0"
@@ -5812,7 +5844,7 @@ strip-eof@^1.0.0:
   resolved "https://registry.npmjs.org/strip-eof/-/strip-eof-1.0.0.tgz"
   integrity sha1-u0P/VZim6wXYm1n80SnJgzE2Br8=
 
-styled-components@^5.2.1:
+styled-components@^5.1.1, styled-components@^5.2.1:
   version "5.2.1"
   resolved "https://registry.npmjs.org/styled-components/-/styled-components-5.2.1.tgz"
   integrity sha512-sBdgLWrCFTKtmZm/9x7jkIabjFNVzCUeKfoQsM6R3saImkUnjx0QYdLwJHBjY9ifEcmjDamJDVfknWm1yxZPxQ==

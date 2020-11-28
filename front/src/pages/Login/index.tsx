@@ -11,6 +11,7 @@ import Gmail_logo from "../../images/Gmail_logo";
 
 import InputButton from "../../components/InputButton";
 import ButtonConfirm from "../../components/ButtonConfirm";
+import api from "../../services/api";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -24,9 +25,37 @@ const Login: React.FC = () => {
   };
 
   const handleLogin = () => {
-    if (email == "a@a" && password == "a") {
-      navigation.navigate("RegisterSecond");
-    }
+    api.get("/users").then((response) => {
+      const producerUser = response.data["producer"]
+        .map((producerInfo: any) => {
+          if (
+            producerInfo.user.email == email &&
+            producerInfo.user.password == password
+          ) {
+            return producerInfo.id;
+          }
+        })
+        .filter((user: any) => user != undefined);
+
+      const transporterUser = response.data["transporter"]
+        .map((transporterInfo: any) => {
+          if (
+            transporterInfo.user.email == email &&
+            transporterInfo.user.password == password
+          ) {
+            return transporterInfo.id;
+          }
+        })
+        .filter((user: any) => user != undefined);
+
+      if (producerUser.length) {
+        navigation.navigate("LandingFarmer", { id: producerUser[0] });
+      } else if (transporterUser.length) {
+        navigation.navigate("LandingTransporter", { id: transporterUser[0] });
+      } else {
+        // Usuário e senha errados.
+      }
+    });
   };
 
   return (
@@ -62,7 +91,11 @@ const Login: React.FC = () => {
       </View>
 
       {/* Botão entrar */}
-      <ButtonConfirm text={"Entrar"} nextPage={"Login"} />
+      <View style={styles.enterButtonContainer}>
+        <RectButton style={styles.enterButton} onPress={handleLogin}>
+          <Text style={styles.enterButtonText}>{"Entrar"}</Text>
+        </RectButton>
+      </View>
 
       {/* Linha */}
       <View style={styles.horizontalRule} />

@@ -1,10 +1,68 @@
 import React, { useState } from "react";
 import { SafeAreaView, View, Text } from "react-native";
-import { RectButton } from "react-native-gesture-handler";
+import { RectButton, ScrollView } from "react-native-gesture-handler";
 import { styles } from "./styles";
 import ButtonConfirm from "../../../../components/ButtonConfirm";
+import InputButton from "../../../../components/InputButton";
+import api from "../../../../services/api";
+import { useNavigation } from "@react-navigation/native";
 
-const Transportador: React.FC = () => {
+const Transportador: React.FC = (props: any) => {
+  const [legalAgreements, setLegalAgreements] = useState("");
+  const [cnh, setCNH] = useState("");
+  const [crlv, setCRLV] = useState("");
+  const [vehicle, setVehicle] = useState("");
+  const [price, setPrice] = useState("");
+
+  const {
+    name,
+    email,
+    password,
+    cpf,
+    aniversario,
+    genre,
+    contact,
+    // profile_picture
+  } = props.route.params;
+
+  const navigation = useNavigation();
+
+  const handleRegister = () => {
+    const producerInfo = { amI: false };
+    const transporterInfo = {
+      amI: true,
+      legal_agreements: legalAgreements,
+      cnh,
+      crlv,
+      vehicle,
+      price,
+      assessments: "{}",
+    };
+
+    const userInformation = {
+      name: name,
+      email: email,
+      password: password,
+      cpf: cpf.toString(),
+      birthday: aniversario,
+      genre,
+      contact: contact.toString(),
+      producerInfo: JSON.stringify(producerInfo),
+      transporterInfo: JSON.stringify(transporterInfo),
+    };
+
+    console.log(userInformation);
+
+    api
+      .post("/users", userInformation)
+      .then((response) =>
+        navigation.navigate("LandingTransporter", {
+          id: response.data.userInfo.id,
+        })
+      )
+      .catch((error) => console.error(error));
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.infoContainer}>
@@ -15,20 +73,32 @@ const Transportador: React.FC = () => {
         <View style={styles.horizontalRule} />
 
         <View style={styles.formContainer}>
-          {/* Botão para Acordos Legais */}
-          <RectButton style={styles.input}>
-            <Text style={styles.buttonText}>Acordos Legais</Text>
-          </RectButton>
+          <ScrollView>
+            {/* Botão para Acordos Legais */}
 
-          <RectButton style={styles.input}>
-            <Text style={styles.buttonText}>CNH com EAR</Text>
-          </RectButton>
+            <InputButton
+              text="Acordos Legais"
+              value={legalAgreements}
+              onChange={setLegalAgreements}
+            />
 
-          <RectButton style={styles.input}>
-            <Text style={styles.buttonText}>CRLV</Text>
-          </RectButton>
+            <InputButton text="CNH com EAR" value={cnh} onChange={setCNH} />
 
-          <ButtonConfirm text={"Cadastrar"} nextPage={"Login"} />
+            <InputButton text="CRLV" value={crlv} onChange={setCRLV} />
+
+            <InputButton text="Veículo" value={vehicle} onChange={setVehicle} />
+
+            <InputButton text="Preço" value={price} onChange={setPrice} />
+
+            <View style={styles.registerButtonContainer}>
+              <RectButton
+                style={styles.registerButton}
+                onPress={handleRegister}
+              >
+                <Text style={styles.registerButtonText}>{"Cadastrar"}</Text>
+              </RectButton>
+            </View>
+          </ScrollView>
         </View>
       </View>
     </SafeAreaView>

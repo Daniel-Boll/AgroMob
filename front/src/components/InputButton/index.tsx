@@ -1,5 +1,6 @@
 import { useLinkProps } from "@react-navigation/native";
-import React, { SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
+import { NativeSyntheticEvent, TextInputChangeEventData } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 
 import { styles } from "../InputButton/styles";
@@ -11,8 +12,8 @@ interface InputProps {
   capitalize?: any;
   secureText?: boolean;
   maxLength?: number;
-  value: string | number;
-  onChange: React.Dispatch<SetStateAction<string>>;
+  onChange?: any;
+  value?: any;
 }
 
 const InputButton: React.FC<InputProps> = ({
@@ -22,6 +23,8 @@ const InputButton: React.FC<InputProps> = ({
   capitalize,
   secureText,
   maxLength,
+  onChange,
+  value,
 }) => {
   return (
     <TextInput
@@ -33,6 +36,8 @@ const InputButton: React.FC<InputProps> = ({
       style={styles.input}
       maxLength={maxLength}
       placeholderTextColor="#4B65C2"
+      onChangeText={onChange}
+      value={value}
     />
   );
 };

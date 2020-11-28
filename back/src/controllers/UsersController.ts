@@ -81,6 +81,8 @@ export default {
     const producerInfo = JSON.parse(request.body.producerInfo);
     const transporterInfo = JSON.parse(request.body.transporterInfo);
 
+    let userInfo;
+
     const requestImage = request.file;
 
     const usersRepository = getRepository(User);
@@ -92,6 +94,7 @@ export default {
       password,
       cpf,
       genre,
+      // profile_picture: "produtor_rural_placeholder.jpg",
       profile_picture: requestImage.filename,
       contact,
       birthday,
@@ -103,7 +106,7 @@ export default {
       password: Yup.string().required("Senha obrigatória"),
       cpf: Yup.string().required("CPF obrigatório"),
       genre: Yup.string().required("Gênero obrigatório"),
-      profile_picture: Yup.string().required("Foto obrigatória"),
+      profile_picture: Yup.string(),
       contact: Yup.string().required("Contato obrigatório"),
       birthday: Yup.string().required("Data de nascimento obrigatória"),
     });
@@ -140,6 +143,7 @@ export default {
       });
 
       await producerRepository.save(producer);
+      userInfo = producer;
       // ----- Preenche os dados do produtor -----
     } else if (transporterInfo.amI) {
       /*Caso contrário checa se é transportador
@@ -176,6 +180,7 @@ export default {
       });
 
       await transporterRepository.save(transporter);
+      userInfo = transporter;
       // ----- Preenche os dados do transportador -----
     }
 
@@ -183,6 +188,7 @@ export default {
       message: `O ${
         producerInfo.amI ? `produtor` : `transportador`
       } foi salvo com sucesso`,
+      userInfo,
     });
   },
 
@@ -223,7 +229,7 @@ export default {
 
   async updateSchedule(request: Request, response: Response) {
     const {
-      producer_id,
+      producer,
       transporter_id,
       start,
       load_location,
@@ -236,29 +242,32 @@ export default {
 
     const schedule = await scheduleRepository.findOne({
       where: {
-        producer: producer_id,
+        producer: producer,
         start: start,
         load_location: load_location,
         unload_location: unload_location,
       },
     });
 
-    console.log(schedule);
-
-    const newSchedule = scheduleRepository.save({
+    const newSchedule = await scheduleRepository.save({
       ...schedule,
       transporter: transporter_id,
       end,
     });
 
-    return response.status(201).json(newSchedule);
+    return response.status(201).json({ message: "Success", newSchedule });
   },
 
   async listSchedule(request: Request, response: Response) {
     const scheduleRepository = getRepository(Schedule);
 
     const schedule = await scheduleRepository.find({
-      where: { transporter: null },
+      relations: [
+        "producer",
+        "producer.user",
+        "transporter",
+        "transporter.user",
+      ],
     });
 
     return response.json(schedule);

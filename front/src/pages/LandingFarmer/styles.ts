@@ -58,8 +58,9 @@ export const styles = StyleSheet.create({
     marginTop: -50,
     marginBottom: 30,
   },
+
   datePicker: {
-    display: "flex",  
+    display: "flex",
     justifyContent: "center",
     backgroundColor: "#fff",
     borderWidth: 1.4,
@@ -69,12 +70,77 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 24,
     marginBottom: 35,
     marginHorizontal: 20,
-    width: "89%"
+    width: "89%",
   },
+
   datePickerText: {
     fontSize: 16,
-    fontFamily: "Poppins_600SemiBold", 
-    color:"#4B65C2", 
-    marginHorizontal: 30
-  }
+    fontFamily: "Poppins_600SemiBold",
+    color: "#4B65C2",
+    marginHorizontal: 30,
+  },
+
+  farmerProfileGlobalContainer: {
+    flex: 1,
+  },
+
+  farmerProfileContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: -100,
+  },
+
+  farmerProfileName: {
+    fontSize: 30,
+    fontFamily: "Poppins_600SemiBold",
+    color: "#4B65C2",
+    marginBottom: 40,
+  },
+
+  farmerProfileInfo: {
+    fontSize: 20,
+    fontFamily: "Poppins_600SemiBold",
+    color: "#4B65C2DD",
+  },
+
+  farmerHistoryContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "flex-start",
+    marginTop: 20,
+  },
+
+  scheduleInfo: {
+    flexDirection: "row",
+  },
+
+  scheduleInfoTitle: {
+    fontFamily: "Poppins_600SemiBold",
+  },
+
+  scheduleInfoContent: {
+    color: "#0007",
+    fontFamily: "Poppins_400Regular",
+  },
+
+  scheduleInfoContentNon: {
+    color: "#FF0066",
+    fontFamily: "Poppins_400Regular",
+  },
+
+  scheduleContainer: {
+    borderWidth: 1,
+    borderRadius: 20,
+    width: 400,
+    alignItems: "center",
+    marginBottom: 20,
+    backgroundColor: "#F2F5FA",
+    elevation: 15,
+  },
+
+  horizontalRule: {
+    marginTop: 10,
+    marginBottom: 10,
+  },
 });

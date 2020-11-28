@@ -8,6 +8,7 @@ interface TopTabNavigatorProps {
   screens: Array<{
     name: string;
     component: React.FC<{}>;
+    params?: any[];
   }>;
 }
 
@@ -29,6 +30,7 @@ const TopTabNavigator: React.FC<TopTabNavigatorProps> = ({ screens }) => {
               key={index}
               name={screen.name}
               component={screen.component}
+              initialParams={screen.params}
             />
           );
         })}
